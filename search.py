@@ -21,7 +21,7 @@ def convert_hash(h):
 def hamming(a, b):
     return bin(int(a) ^ int(b)).count("1")
     
-print("Loading VP tree and hashes")
+print("Loading VP tree and hashes...")
 tree = pickle.loads(open("vptree.pickle", "rb").read())
 hashes = pickle.loads(open("hashes.pickle", "rb").read())
 
@@ -30,7 +30,7 @@ cv2.imshow("Query", image)
 queryHash = dhash(image)
 queryHash = convert_hash(queryHash)
 
-print("Performing search")
+print("Performing search...")
 start = time.time()
 results = tree.get_all_in_range(queryHash, args["distance"])
 results = sorted(results)
